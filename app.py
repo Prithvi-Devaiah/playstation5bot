@@ -1,3 +1,2 @@
-import os
-
-print("Hello")
+while(true):
+    print("Hello")
