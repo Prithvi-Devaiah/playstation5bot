@@ -13,5 +13,5 @@ driver = webdriver.Chrome(executable_path = os.environ.get("CHROMEDRIVER_PATH"),
 
 while True:
     if not Tele.get_last_message() == Tele.end_command:
-        Tele.send_message(get_chat_id(last_update(Tele.url)), "Testing Telegram Bot")
+        Tele.send_message(Tele.get_chat_id(last_update(Tele.url)), "Testing Telegram Bot")
         time.sleep(3)
