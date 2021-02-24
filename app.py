@@ -41,11 +41,11 @@ while True:
                 command_temp = command.split(' ')
                 if len(command_temp) <= 0:
                     Tele.send_message('Add the name of the refresher in the command. Format of the command is '
-                                      '/addNewRefresher [id_of_the_refresher] [url] [element_id] [True/False] True if '
+                                      '/addNewRefresher [id_of_the_refresher] [url] [element_id] [XML/ID] True if '
                                       'you are using ID and not XPath.')
                 elif len(command_temp) > 5:
                     Tele.send_message('Format of the command is '
-                                      '/addNewRefresher [id_of_the_refresher] [url] [element_id] [True/False]')
+                                      '/addNewRefresher [id_of_the_refresher] [url] [element_id] [XML/ID]')
                 else:
                     refresher_temp = create_new_refresher(command_temp[1], command_temp[2], command_temp[3], command_temp[4])
                     if refresher_temp is None:
