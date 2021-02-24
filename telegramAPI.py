@@ -6,6 +6,9 @@ url = credentials.telegramURL
 
 start_command = '/start'
 end_command = '/stop'
+reset_amazonURL_command = '/resetAmazonURL'
+test_command = '/runTest'
+
 valid_commands = ['/start', '/stop', '/resetAmazonURL:']  # list of valid commands that the bot recognises
 
 
