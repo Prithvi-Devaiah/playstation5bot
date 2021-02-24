@@ -9,7 +9,7 @@ refreshers = {}
 
 
 def create_new_refresher(refresher_id, page_url):
-    new_refresher = amazonAPI.PageRefresher(url)
+    new_refresher = amazonAPI.PageRefresher(page_url)
     if refresher_id in refreshers:
         return None
     refreshers[refresher_id] = new_refresher
