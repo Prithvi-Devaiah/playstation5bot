@@ -14,6 +14,7 @@ class PageRefresher:
         self.driver = chromeDriver.get_chrome_driver()
         self.url = web_page
         self.driver.get(web_page)
+        self.use_id = use_id
         if use_id:
             self.element_id = element_id
         else:
