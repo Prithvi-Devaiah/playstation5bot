@@ -14,9 +14,13 @@ driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), c
 while True:
     command = Tele.get_last_message()
     if not command == Tele.end_command:
-        Tele.send_message("Testing Telegram Bot")
+        # Tele.send_message("Testing Telegram Bot")
         time.sleep(3)
         if command.find('Hello') >= 0:
-            Tele.send_message("Hello. What's up?")
+            Tele.send_message("Hello.")
+            if Tele.get_user_name().find('Manav') >= 0 or Tele.get_user_name().find('manav') >= 0:
+                Tele.send_message("Wassup bitch boi Manav. Shappa teriyakka open madde bot na?")
+            elif Tele.get_user_name().find('Sankalp') >= 0 or Tele.get_user_name().find('sankalp') >= 0:
+                Tele.send_message("Yeno lowde.. shaa teriyakka bot open madde?")
         if command.find('Bye') >= 0:
             Tele.send_message("See ya later, alligator.")

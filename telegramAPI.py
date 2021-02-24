@@ -21,6 +21,12 @@ def get_message_text(update):
     return message_text
 
 
+# get user name of the bot
+def get_user_name(update):
+    user_name = update["message"]["from"]["first_name"]
+    return user_name
+
+
 # create function that get last_update
 def last_update(req):
     response = requests.get(req + "getUpdates")
