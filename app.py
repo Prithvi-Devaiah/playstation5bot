@@ -19,7 +19,10 @@ def create_new_refresher(refresher_id, page_url):
 
 
 while True:
-    while last_update_id != Tele.get_last_message_id() :
+    while last_update_id != Tele.get_last_message_id():
+
+        last_update_id = Tele.get_last_message_id()
+
         command = Tele.get_last_message()
 
         if not command == Tele.end_command:
