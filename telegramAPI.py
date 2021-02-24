@@ -31,7 +31,8 @@ def last_update(req):
 
 
 # create function that let bot send message to user
-def send_message(chat_id, message_text):
+def send_message(message_text):
+    chat_id = get_chat_id(last_update(url))
     params = {"chat_id": chat_id, "text": message_text}
     response = requests.post(url + "sendMessage", data=params)
     return response
@@ -48,6 +49,7 @@ def get_last_message():
     return get_message_text(last_update(url))
 
 
+'''
 def main():
     while True:
         while get_message_text(last_update(url)) == start_command:
@@ -57,8 +59,8 @@ def main():
             if get_message_text(update) == "/stop":
                 break
             if update_id == update["update_id"]:
-                send_message(get_chat_id(update), "Testing Telegram Bot")
+                send_message("Testing Telegram Bot")
                 update_id += 1
-
-
 #main()
+'''
+
