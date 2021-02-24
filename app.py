@@ -58,7 +58,7 @@ while True:
                     Tele.send_message('Add the id of the refresher in the command. Format of the command is '
                                       '/runTest [id_of_the_refresher] [id_of_a_webpage_element]')
 
-                elif len(command_temp) > 2:
+                elif len(command_temp) > 3:
                     Tele.send_message('Format of the command is /runTest [id_of_the_refresher] ['
                                       'id_of_a_webpage_element]')
 
