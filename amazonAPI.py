@@ -19,4 +19,8 @@ class PageRefresher:
         self.driver.get(url)
 
     def test_url(self, id):
-        self.driver.find_element_by_id(id).is_displayed()
+        value = self.driver.find_element_by_id(id)
+        if value is None:
+            return False
+        else:
+            return True
