@@ -13,7 +13,7 @@ def create_new_refresher(refresher_id, page_url):
     if refresher_id in refreshers:
         return None
     refreshers[refresher_id] = new_refresher
-    return new_refresher[refresher_id]
+    return refreshers[refresher_id]
 
 
 while True:
