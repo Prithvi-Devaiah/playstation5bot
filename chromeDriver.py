@@ -12,8 +12,11 @@ op.add_argument("--disable-dev-sh-usage")
 driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), options=op)
 
 
-def check_webpage(url, web_element_id):
+def change_webpage(url):
     driver.get(url)
+
+
+def check_webpage(web_element_id):
     return driver.find_element_by_id(web_element_id).is_displayed()
 
 
