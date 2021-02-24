@@ -16,7 +16,7 @@ while True:
     if not command == Tele.end_command:
         Tele.send_message("Testing Telegram Bot")
         time.sleep(3)
-        if command.contains('Hello') >= 0:
+        if command.find('Hello') >= 0:
             Tele.send_message("Hello. What's up?")
-        if command.contains('Bye') >= 0:
+        if command.find('Bye') >= 0:
             Tele.send_message("See ya later, alligator.")
