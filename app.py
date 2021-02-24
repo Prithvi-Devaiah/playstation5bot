@@ -22,5 +22,7 @@ while True:
                 Tele.send_message("Wassup bitch boi Manav. Shappa teriyakka open madde bot na?")
             elif Tele.get_user_name().find('Sankalp') >= 0 or Tele.get_user_name().find('sankalp') >= 0:
                 Tele.send_message("Yeno lowde.. shaa teriyakka bot open madde?")
+            elif Tele.get_user_name().find('Kabaab') >= 0:
+                Tele.send_message("Alright alright alright!!")
         if command.find('Bye') >= 0:
             Tele.send_message("See ya later, alligator.")
