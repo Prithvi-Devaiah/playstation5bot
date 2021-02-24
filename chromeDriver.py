@@ -14,7 +14,7 @@ driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), o
 
 def check_webpage(url, web_element_id):
     driver.get(url)
-    return driver.find_elements_by_id(web_element_id).is_displayed()
+    return driver.find_element_by_id(web_element_id).is_displayed()
 
 
 def close_webpage():
