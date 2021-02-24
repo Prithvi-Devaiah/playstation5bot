@@ -10,8 +10,8 @@ refreshers = {}
 last_update_id = 00000
 
 
-def create_new_refresher(refresher_id_, page_url, element_id_to_use):
-    new_refresher = amazonAPI.PageRefresher(page_url, element_id_to_use)
+def create_new_refresher(refresher_id_, page_url, element_id_to_use, use_id_):
+    new_refresher = amazonAPI.PageRefresher(page_url, element_id_to_use, use_id_)
     if refresher_id_ in refreshers:
         return None
     refreshers[refresher_id_] = new_refresher
@@ -41,12 +41,13 @@ while True:
                 command_temp = command.split(' ')
                 if len(command_temp) <= 0:
                     Tele.send_message('Add the name of the refresher in the command. Format of the command is '
-                                      '/addNewRefresher [id_of_the_refresher] [url] [element_id]')
-                elif len(command_temp) > 4:
+                                      '/addNewRefresher [id_of_the_refresher] [url] [element_id] [True/False] True if '
+                                      'you are using ID and not XPath.')
+                elif len(command_temp) > 5:
                     Tele.send_message('Format of the command is '
-                                      '/addNewRefresher [id_of_the_refresher] [url] [element_id]')
+                                      '/addNewRefresher [id_of_the_refresher] [url] [element_id] [True/False]')
                 else:
-                    refresher_temp = create_new_refresher(command_temp[1], command_temp[2], command_temp[3])
+                    refresher_temp = create_new_refresher(command_temp[1], command_temp[2], command_temp[3], command_temp[4])
                     if refresher_temp is None:
                         Tele.send_message('Could not create the refresher. Provide a valid URL or a unique id for the '
                                           'refresher')
@@ -84,7 +85,7 @@ while True:
                     if command_temp[1] in refreshers:
                         current_refresher = refreshers[command_temp[1]]
                         current_refresher.pause = True
-                        message = 'Paused the ' + command_temp[1] + '. Use /resume ' + command_temp[1] + 'to resume ' \
+                        message = 'Paused the ' + command_temp[1] + '. Use /resume ' + command_temp[1] + ' to resume ' \
                                                                                                          'checking. '
                         Tele.send_message(message)
                     else:
@@ -102,7 +103,7 @@ while True:
                     if command_temp[1] in refreshers:
                         current_refresher = refreshers[command_temp[1]]
                         current_refresher.pause = False
-                        message = 'Resumed the ' + command_temp[1] + '. Use /pause ' + command_temp[1] + 'to pause ' \
+                        message = 'Resumed the ' + command_temp[1] + '. Use /pause ' + command_temp[1] + ' to pause ' \
                                                                                                          'checking. '
                         Tele.send_message(message)
                     else:
