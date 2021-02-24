@@ -4,7 +4,7 @@ import time
 import os
 
 update = True
-url = ""
+url = "https:/www.youtube.com"
 
 while True:
     command = Tele.get_last_message()
