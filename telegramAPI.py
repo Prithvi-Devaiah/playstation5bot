@@ -60,6 +60,10 @@ def get_last_message():
     return get_message_text(last_update(url))
 
 
+def get_last_message_id():
+    return last_update(url)["update_id"]
+
+
 '''
 def main():
     while True:
