@@ -1,6 +1,7 @@
 # APIs for anything to do with selenium and its functions.
 
 from selenium import webdriver
+import os
 
 op = webdriver.ChromeOptions()
 op.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
