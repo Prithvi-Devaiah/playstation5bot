@@ -116,5 +116,5 @@ while True:
                                                                                               "Enter /pause " + \
                           refresher_id + "to pause it. "
                 Tele.send_message(message)
-            refresher_object.refresh()
+            refresher_object.refresh_page()
 
