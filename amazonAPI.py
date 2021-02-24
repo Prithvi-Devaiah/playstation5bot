@@ -9,7 +9,7 @@ class PageRefresher:
     def __init__(self, web_page):
         self.driver = chromeDriver.get_chrome_driver()
         self.url = web_page
-        self.driver.get(url)
+        self.driver.get(web_page)
 
     def refresh_page(self):
         self.driver.refresh()
