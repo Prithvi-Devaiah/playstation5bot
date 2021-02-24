@@ -22,7 +22,8 @@ def get_message_text(update):
 
 
 # get user name of the bot
-def get_user_name(update):
+def get_user_name():
+    update = last_update(url)
     user_name = update["message"]["from"]["first_name"]
     return user_name
 
