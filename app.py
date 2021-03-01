@@ -1,6 +1,6 @@
 import telegramAPI as Tele
 import chromeDriver
-import amazonAPI
+import refresherAPI
 import time
 import os
 
@@ -10,7 +10,7 @@ last_update_id = 00000
 
 
 def create_new_refresher(refresher_id_, page_url, element_id_to_use, use_id_):
-    new_refresher = amazonAPI.PageRefresher(page_url, element_id_to_use, use_id_)
+    new_refresher = refresherAPI.PageRefresher(page_url, element_id_to_use, use_id_)
     if refresher_id_ in refreshers:
         return None
     refreshers[refresher_id_] = new_refresher
