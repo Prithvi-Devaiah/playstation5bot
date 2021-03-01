@@ -1,4 +1,5 @@
 import chromeDriver
+import selenium
 import time
 
 
@@ -29,15 +30,19 @@ class PageRefresher:
 
     def check_webpage_element(self):
         if self.mode == 'ID':
-            value = self.driver.find_element_by_id(self.element_id)
+            try:
+                value = self.driver.find_element_by_id(self.element_id)
+                return True
+            except selenium.common.exceptions.NoSuchElementException:
+                return False
         else:
-            value = self.driver.find_element_by_xpath(self.xml_path)
-        if value is None:
-            return False
-        else:
-            return True
+            try:
+                value = self.driver.find_element_by_xpath(self.xml_path)
+                return True
+            except selenium.common.exceptions.NoSuchElementException:
+                return False
 
-    def test_url(self, id):
+    def test_url(self):
         if self.mode == 'ID':
             value = self.driver.find_element_by_id(self.element_id)
         else:

@@ -34,7 +34,7 @@ while True:
                 url = new_amazon_url
 
             if command == Tele.test_command:
-                result = str(chromeDriver.check_webpage("logo-icon"))
+                result = str(chromeDriver.check_webpage(driver, "logo-icon"))
                 print(result)
 
             if command.find(Tele.add_new_refresher) >= 0:
@@ -58,16 +58,15 @@ while True:
                 command_temp = command.split(' ')
                 if len(command_temp) <= 0:
                     Tele.send_message('Add the id of the refresher in the command. Format of the command is '
-                                      '/runTest [id_of_the_refresher] [id_of_a_webpage_element]')
+                                      '/runTest [id_of_the_refresher]')
 
                 elif len(command_temp) > 3:
-                    Tele.send_message('Format of the command is /runTest [id_of_the_refresher] ['
-                                      'id_of_a_webpage_element]')
+                    Tele.send_message('Format of the command is /runTest [id_of_the_refresher]')
 
                 else:
                     if command_temp[1] in refreshers:
                         current_refresher = refreshers[command_temp[1]]
-                        if current_refresher.test_url(command_temp[2]):
+                        if current_refresher.test_url():
                             Tele.send_message('Site working fine.')
                         else:
                             Tele.send_message('Could not find the element or the site isn\'t working properly.')
@@ -115,7 +114,7 @@ while True:
             if not refresher_object.check_webpage_element():
                 message = "Found an anomaly in " + refresher_id + " " + refresher_object.url + ". Check immediately. " \
                                                                                               "Enter /pause " + \
-                          refresher_id + "to pause it. "
+                          refresher_id + " to pause it. "
                 Tele.send_message(message)
             refresher_object.refresh_page()
 
