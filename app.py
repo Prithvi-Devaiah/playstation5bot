@@ -4,7 +4,6 @@ import amazonAPI
 import time
 import os
 
-
 refreshers = {}
 
 last_update_id = 00000
