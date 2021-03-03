@@ -11,7 +11,7 @@ class PageRefresher:
     xml_path = ""
     mode = ""
     pause = False
-    has_buy_now_button = False
+    has_buy_now_button = "false"
 
     def __init__(self, web_page, element_id, buy_now_button, use_id, has_buy_now_button):
         self.driver = chromeDriver.get_chrome_driver()
@@ -48,7 +48,7 @@ class PageRefresher:
                 value = self.driver.find_element_by_xpath(self.xml_path)
                 return True
             except selenium.common.exceptions.NoSuchElementException:
-                if self.has_buy_now_button:
+                if self.has_buy_now_button.find:
                     try:
                         self.driver.find_element_by_xpath(self.buy_now_button)
                         return True
