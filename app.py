@@ -42,7 +42,7 @@ while True:
                     Tele.send_message('Add the name of the refresher in the command. Format of the command is '
                                       '/addNewRefresher [id_of_the_refresher] [url] [element_id] [Buy_now_button] ['
                                       'XML/ID] [has_buy_now_button].')
-                elif len(command_temp) > 6:
+                elif len(command_temp) > 7:
                     Tele.send_message('Format of the command is '
                                       '/addNewRefresher [id_of_the_refresher] [url] [element_id] [Buy_now_button] ['
                                       'XML/ID] [has_buy_now_button].')
