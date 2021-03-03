@@ -9,10 +9,10 @@ refreshers = {}
 last_update_id = 00000
 
 
-def create_new_refresher(refresher_id_, page_url, element_id_to_use, use_id_):
-    new_refresher = refresherAPI.PageRefresher(page_url, element_id_to_use, use_id_)
+def create_new_refresher(refresher_id_, page_url, element_id_to_use, buy_now_button_id, use_id_, has_buy_now_button):
     if refresher_id_ in refreshers:
         return None
+    new_refresher = refresherAPI.PageRefresher(page_url, element_id_to_use, buy_now_button_id, use_id_, has_buy_now_button)
     refreshers[refresher_id_] = new_refresher
     return refreshers[refresher_id_]
 
@@ -38,15 +38,16 @@ while True:
 
             if command.find(Tele.add_new_refresher) >= 0:
                 command_temp = command.split(' ')
-                if len(command_temp) <= 0:
+                if len(command_temp) <= 1:
                     Tele.send_message('Add the name of the refresher in the command. Format of the command is '
-                                      '/addNewRefresher [id_of_the_refresher] [url] [element_id] [XML/ID] True if '
-                                      'you are using ID and not XPath.')
-                elif len(command_temp) > 5:
+                                      '/addNewRefresher [id_of_the_refresher] [url] [element_id] [Buy_now_button] ['
+                                      'XML/ID] [has_buy_now_button].')
+                elif len(command_temp) > 6:
                     Tele.send_message('Format of the command is '
-                                      '/addNewRefresher [id_of_the_refresher] [url] [element_id] [XML/ID]')
+                                      '/addNewRefresher [id_of_the_refresher] [url] [element_id] [Buy_now_button] ['
+                                      'XML/ID] [has_buy_now_button].')
                 else:
-                    refresher_temp = create_new_refresher(command_temp[1], command_temp[2], command_temp[3], command_temp[4])
+                    refresher_temp = create_new_refresher(command_temp[1], command_temp[2], command_temp[3], command_temp[4],command_temp[5], command_temp[6])
                     if refresher_temp is None:
                         Tele.send_message('Could not create the refresher. Provide a valid URL or a unique id for the '
                                           'refresher')
@@ -55,7 +56,7 @@ while True:
 
             if command.find(Tele.test_command) >= 0:
                 command_temp = command.split(' ')
-                if len(command_temp) <= 0:
+                if len(command_temp) <= 1:
                     Tele.send_message('Add the id of the refresher in the command. Format of the command is '
                                       '/runTest [id_of_the_refresher]')
 
