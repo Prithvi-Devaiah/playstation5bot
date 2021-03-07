@@ -8,7 +8,7 @@ refreshers = {}
 
 last_update_id = 00000
 
-# Testing
+# Testing 2
 
 
 def create_new_refresher(refresher_id_, page_url, element_id_to_use, buy_now_button_id, use_id_, has_buy_now_button):
